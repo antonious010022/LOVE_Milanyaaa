@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>I love you milanyaaa 💖</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;rect width='100' height='100' fill='pink'/&gt;&lt;text x='50' y='50' font-size='60' text-anchor='middle' dominant-baseline='middle'&gt;❤️&lt;/text&gt;&lt;/svg&gt;">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Cairo', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #4A0E0E 0%, #6B1423 25%, #800020 50%, #6B1423 75%, #4A0E0E 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 20s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+        @keyframes gradientShift {
+            0%   { background-position: 0% 50%; }
+            50%  { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* FLOATING HEARTS */
+        .floats-container {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .float-item {
+            position: absolute;
+            bottom: -80px;
+            opacity: 0;
+            animation: floatUp 14s infinite ease-in-out;
+            filter: drop-shadow(0 0 15px rgba(255,182,193,0.8));
+        }
+        @keyframes floatUp {
+            0%   { transform: translateY(0) rotate(0deg) scale(0.5); opacity: 0; }
+            10%  { opacity: 0.9; }
+            50%  { opacity: 0.8; }
+            90%  { opacity: 0.5; }
+            100% { transform: translateY(-110vh) rotate(20deg) scale(1.2); opacity: 0; }
+        }
+
+        /* HEART CONTAINER */
+        .heart-container {
+            position: relative;
+            width: 650px;
+            height: 600px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .big-heart {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            font-size: 550px;
+            animation: heartBeat 2.5s infinite;
+            filter: drop-shadow(0 0 15px rgba(0,0,0,0.9)) drop-shadow(0 15px 35px rgba(0,0,0,0.8));
+        }
+        .big-heart::before {
+            content: "❤️";
+            background: linear-gradient(135deg, #C41E3A 0%, #B91C30 25%, #A01828 50%, #B91C30 75%, #C41E3A 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        @keyframes heartBeat {
+            0%, 100% { transform: scale(1); }
+            10%, 30% { transform: scale(1.05); }
+            20%, 40% { transform: scale(1); }
+        }
+
+        /* CONTENT INSIDE HEART */
+        .login-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 65%;
+    z-index: 3;
+    padding: 30px 25px;
+    text-align: center;
+        }
+
+        .photo-circle-wrap {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 14px;
+        }
+        .photo-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 4px solid rgba(255,182,193,0.5);
+            box-shadow: 0 0 0 3px rgba(255,182,193,0.3), 0 8px 25px rgba(0,0,0,0.4);
+            overflow: hidden;
+            animation: photoGlow 3s ease-in-out infinite alternate;
+        }
+        @keyframes photoGlow {
+            0%   { box-shadow: 0 0 0 3px rgba(255,182,193,0.3), 0 8px 25px rgba(0,0,0,0.3); }
+            100% { box-shadow: 0 0 0 6px rgba(255,182,193,0.8), 0 8px 30px rgba(0,0,0,0.5); }
+        }
+        .photo-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .login-title {
+            font-size: 1.9em;
+            color: #FFE5EC;
+            font-weight: 900;
+            margin-bottom: 4px;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+        }
+        .login-subtitle {
+            font-size: 0.95em;
+            color: #FFD1DC;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .error-msg {
+            background: rgba(255,100,100,0.15);
+            border: 2px solid rgba(255,100,100,0.3);
+            color: #cc0000;
+            padding: 10px;
+            border-radius: 12px;
+            margin: 14px 0;
+            font-size: 0.9em;
+            display: none;
+        }
+
+        .input-group { margin-bottom: 16px; }
+        .input-group label {
+            display: block;
+            margin-bottom: 7px;
+            color: #FFE5EC;
+            font-weight: 700;
+            text-align: right;
+        }
+        .input-group input {
+            width: 80%;
+            padding: 12px 15px;
+            border: 2px solid rgba(255,182,193,0.4);
+            border-radius: 14px;
+            font-size: 1.4em;
+            font-weight: 900;
+            background: rgba(255,255,255,0.15);
+            color: #FFE5EC;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        .input-group input:focus {
+            outline: none;
+            border-color: #FFB6C1;
+            background: rgba(255,255,255,0.25);
+            box-shadow: 0 5px 20px rgba(255,182,193,0.5);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #800020, #6B1423);
+            border: 3px solid rgba(255,182,193,0.3);
+            border-radius: 14px;
+            color: #FFE5EC;
+            font-size: 1.15em;
+            font-weight: 900;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            transition: all 0.4s ease;
+        }
+        .login-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+        }
+
+        @media (max-width: 768px) {
+            .heart-container { width: 400px; height: 400px; }
+            .big-heart { font-size: 350px; }
+            .login-content { width: 75%; }
+            .photo-circle { width: 80px; height: 80px; }
+            .login-title { font-size: 1.5em; }
+        }
+        @media (max-width: 480px) {
+            .heart-container { width: 320px; height: 320px; }
+            .big-heart { font-size: 280px; }
+            .login-content { width: 80%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="floats-container" id="floatsContainer"></div>
+
+    <div class="login-container">
+        <div class="heart-container">
+            
+            <div class="login-content">
+                <div class="photo-circle-wrap">
+                    <div class="photo-circle">
+                        <img src="IMG-20260329-WA0064.jpg" alt="photo">
+                    </div>
+                </div>
+                
+                <h1 class="login-title">هعععععععع 😘😘😘😘😘😘 </h1>
+                <p class="login-subtitle">my everything ❤</p>
+                
+                <div class="input-group">
+                    <input type="" id="password" placeholder= "الباسورد 🙈 " autocomplete="off">
+                </div>
+                
+                <button id="unlockBtn" class="login-btn">💕 Unlock 💕</button>
+                
+                <div id="errorMsg" class="error-msg"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        
+        // ==================== غير الباسورد من هنا ====================
+        const correctPassword = "love you tona";   // ←←← غير الكلمة دي للباسورد اللي تحبه
+
+        // العناصر
+        const passwordInput = document.getElementById('password');
+        const unlockBtn = document.getElementById('unlockBtn');
+        const errorMsg = document.getElementById('errorMsg');
+        const loginContainer = document.querySelector('.login-container');
+
+        // Floating hearts
+        const heartIcons = ['❤️','💗','💕','💖','😘','💓','💞'];
+        function createFloatingHeart() {
+            const el = document.createElement('div');
+            el.className = 'float-item';
+            el.textContent = heartIcons[Math.floor(Math.random() * heartIcons.length)];
+            el.style.left = Math.random() * 100 + '%';
+            el.style.fontSize = (28 + Math.random() * 16) + 'px';
+            el.style.animationDuration = (8 + Math.random() * 7) + 's';
+            el.style.animationDelay = Math.random() * 2 + 's';
+            document.getElementById('floatsContainer').appendChild(el);
+            
+            setTimeout(() => el.remove(), 16000);
+        }
+
+        // إنشاء قلوب عائمة بشكل مستمر
+        setInterval(() => {
+            for (let i = 0; i < 2; i++) {
+                createFloatingHeart();
+            }
+        }, 700);
+
+        // التحقق من الباسورد
+        function unlockHeart() {
+            const enteredPass = passwordInput.value.trim();
+
+            if (enteredPass === correctPassword) {
+    errorMsg.style.display = 'none';
+    
+    // تأثير خروج جميل من صفحة القلب
+    loginContainer.style.transition = 'all 1.4s ease';
+    loginContainer.style.opacity = '0';
+    loginContainer.style.transform = 'scale(0.65)';
+
+    setTimeout(() => {
+        // يفتح memories.html في تب جديد
+        window.open("memories.html", "_blank");
+        
+        // اختياري: بعد ما يفتح التب الجديد، نقدر نغلق التب الحالي أو نبقيه
+        // window.close();   // لو عايزة تغلقي تب الباسورد بعد الفتح (شيلي التعليق لو عايزاه)
+
+    }, 1400);
+            } else {
+                // خطأ في الباسورد
+                errorMsg.textContent = "الباسورد غلط يا قلبي 😔 جرب تاني";
+                errorMsg.style.display = 'block';
+                passwordInput.value = '';
+                passwordInput.focus();
+
+                // اهتزاز الـ heart
+                loginContainer.style.transition = 'transform 80ms';
+                loginContainer.style.transform = 'translateX(12px)';
+                setTimeout(() => loginContainer.style.transform = 'translateX(-12px)', 80);
+                setTimeout(() => loginContainer.style.transform = 'translateX(0)', 160);
+            }
+        }
+
+        // أحداث الزر والـ Enter
+        unlockBtn.addEventListener('click', unlockHeart);
+        
+        passwordInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                unlockHeart();
+            }
+        });
+
+        // بداية القلوب العائمة
+        for (let i = 0; i < 4; i++) {
+            createFloatingHeart();
+        }
+    </script>
+</body>
+</html>
